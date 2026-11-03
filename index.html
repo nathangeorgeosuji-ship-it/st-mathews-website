@@ -6,37 +6,91 @@
     <title>Profolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="topbar">.
-        <img id="lo" src="unnamed.png">
-        <div id="name1">ST. MATTHEW</div>
-        <div id="name2">HIGH SCHOOL</div>
-        <button onclick="" id="hy1">Home</button>
-        <button onclick="" id="hy2">About</button>
-        <button onclick="" id="hy3">Academics</button>
-        <button onclick="" id="hy4">Student Life</button>
-        <button onclick="" id="hy5">News & Events</button>
-        <button onclick="" id="hy6">Admissions</button>
-        <button onclick="" id="hy7">Contact</button>
+    <div id="topbar">
+        <div id="brand">
+            <img id="lo" src="unnamed.png" alt="St. Matthew High School logo">
+            <div id="names">
+                <div id="name1">ST. MATTHEW</div>
+                <div id="name2">HIGH SCHOOL</div>
+            </div>
+        </div>
+
+        <nav id="kl">
+            <button onclick="" id="hy1">Home</button>
+            <button onclick="" id="hy2">About</button>
+            <button onclick="" id="hy3">Academics</button>
+            <button onclick="" id="hy4">Student Life</button>
+            <button onclick="" id="hy5">News &amp; Events</button>
+            <button onclick="" id="hy6">Admissions</button>
+            <button onclick="" id="hy7">Contact</button>
+        </nav>
+
+        <div id="actions">
+            <button id="sea" aria-label="Search" onclick="document.getElementById('bar').style.height = '164px'">
+                <img id="pl" src="search-alt-svgrepo-com.svg" alt="">
+            </button>
+            <button id="sp" onclick="window.location.href='https://ocsb.elearningontario.ca';">
+                <img src="person-svgrepo-com.svg" alt="">
+                <span>Student Portal</span>
+            </button>
+            <button id="menu-toggle" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <div id="bar">
+            <button onclick="document.getElementById('bar').style.height = '0px'">back</button>
+            <input type="text" id="set" placeholder="Search this site">
+        </div>
     </div>
+
     <div id="banner">
         <div id="Text1">
             <p id="p1">WELCOME TO</p>
             <p id="p2">St. Matthew</p>
             <p id="p3">High School</p>
-            <p id="p4">A place where faith, learning and community come together to help every student reach their full potential.
-            </p>
-            <button id="l" >Learn More
-                <img id="ar" src="arrow-sm-right-svgrepo-com(1).svg">
+            <p id="p4">A place where faith, learning and community come together to help every student reach their full potential.</p>
+            <button id="l">Learn More
+                <img id="ar" src="arrow-sm-right-svgrepo-com(1).svg" alt="">
             </button>
-            <img id="ls" src="suxAg01-cropped(1).svg">
+            <img id="ls" src="suxAg01-cropped(1).svg" alt="">
         </div>
     </div>
+    <div id="stuff1">
+        <div id="1">
+            <button>Academics</button>
+        </div>
+        <div id="2">
+            <button>Student Life</button>
+        </div>
+        <div id="3">
+            <button>Calendar</button>
+        </div>
+        <div id="4">
+            <button>Admissions</button>
+        </div>
+    </div>
+    <div class="place">.</div>
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const nav = document.getElementById('kl');
+
+        toggle.addEventListener('click', () => {
+            const open = nav.classList.toggle('open');
+            toggle.classList.toggle('open', open);
+            toggle.setAttribute('aria-expanded', open);
+        });
+
+        // close the mobile menu after picking a link
+        nav.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+            nav.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', false);
+        }));
+    </script>
 </body>
 </html>
